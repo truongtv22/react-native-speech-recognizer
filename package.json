@@ -1,0 +1,26 @@
+{
+  "name": "react-native-speech-recognizer",
+  "version": "1.0.0",
+  "description": "react-native-speech-recognizer",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mrzhangxiaoduo/react-native-speech-recognizer.git"
+  },
+  "keywords": [
+    "react-native-speech-recognizer",
+    "voice",
+    "speech",
+    "recongnizer",
+    "recongnition"
+  ],
+  "author": "zhangxiaoduo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Mrzhangxiaoduo/react-native-speech-recognizer/issues"
+  },
+  "homepage": "https://github.com/Mrzhangxiaoduo/react-native-speech-recognizer#readme"
+}
