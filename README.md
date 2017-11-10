@@ -49,6 +49,23 @@ public class MainApplication extends Application implements ReactApplication {
 <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
 ```
+5. Add your `APP_ID`,`API_KEY`,`SECRET_KEY` in `android/app/src/main/AndroidManifest.xml`  
+Click <a href="http://yuyin.baidu.com/">here</a> to get your own `APP_ID`,`API_KEY`,`SECRET_KEY`
+```
+<application
+    ...
+    <meta-data
+        android:name="com.baidu.speech.APP_ID"
+        android:value="10337431" />
+    <meta-data
+        android:name="com.baidu.speech.API_KEY"
+        android:value="Ptivienw5Qx75uRnKalq7Eq2" />
+   <meta-data
+       android:name="com.baidu.speech.SECRET_KEY"
+       android:value="bd5c689721bfa3530330c677e87303a6" />
+    ...
+</application>
+```
 #### IOS
 1. In the XCode's "Project navigator", right click on your project's Libraries folder ➜ `Add Files to <...>`
 2. Go to `node_modules` ➜ `react-native-speech-recognizer` ➜ `ios` ➜ select `SpeechRecognition.xcodeproj`
