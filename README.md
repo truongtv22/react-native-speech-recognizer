@@ -6,7 +6,9 @@ npm install react-native-speech-recognizer --save
 ```
 # Linking
 ### Automatic  
-  `react-native link react-native-speech-recognizer`
+```
+react-native link react-native-speech-recognizer
+```
 ### Manual  
   Make alterations to the following files in your project:
 #### Android
@@ -42,14 +44,50 @@ public class MainApplication extends Application implements ReactApplication {
         );
     }
 ```
-4. Add permission in `android/app/src/main/AndroidManifest.xml`
+#### IOS
+1. In the XCode's "Project navigator", right click on your project's Libraries folder ➜ `Add Files to <...>`
+2. Go to `node_modules` ➜ `react-native-speech-recognizer` ➜ `ios` ➜ select `SpeechRecognition.xcodeproj`
+3. Add `SpeechRecognition.a` to `Build Phases -> Link Binary With Libraries`
+# Permission
+### Android
+1. Add permission in `android/app/src/main/AndroidManifest.xml`
 ```
 <uses-permission android:name="android.permission.RECORD_AUDIO"/>
 <uses-permission android:name="android.permission.INTERNET"/>
 <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
 ```
-5. Add your `APP_ID`,`API_KEY`,`SECRET_KEY` in `android/app/src/main/AndroidManifest.xml`  
+2. Since Android M(6.0), user need to grant permission at runtime.  
+Add following lines to `android/app/src/.../MainActivity.java`
+```
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    checkAndRequestPermissions();
+}
+private void checkAndRequestPermissions() {
+      int sdkVersion = Build.VERSION.SDK_INT;
+      if (sdkVersion >= Build.VERSION_CODES.M) {
+          if (ActivityCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO)
+                  != PackageManager.PERMISSION_GRANTED
+                  || ActivityCompat.checkSelfPermission(this, Manifest.permission.INTERNET)
+                  != PackageManager.PERMISSION_GRANTED
+                  || ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_NETWORK_STATE)
+                  != PackageManager.PERMISSION_GRANTED
+                  || ActivityCompat.checkSelfPermission(this, Manifest.permission.READ_PHONE_STATE)
+                  != PackageManager.PERMISSION_GRANTED) {
+              ActivityCompat.requestPermissions(this,
+                      new String[]{Manifest.permission.RECORD_AUDIO,
+                              Manifest.permission.INTERNET,
+                              Manifest.permission.ACCESS_NETWORK_STATE,
+                              Manifest.permission.READ_PHONE_STATE
+                      },
+                      1);
+          }
+      }
+  }
+```
+3. Add your `APP_ID`,`API_KEY`,`SECRET_KEY` in `android/app/src/main/AndroidManifest.xml`  
 Click <a href="http://yuyin.baidu.com/">here</a> to get your own `APP_ID`,`API_KEY`,`SECRET_KEY`
 ```
 <application
@@ -66,11 +104,8 @@ Click <a href="http://yuyin.baidu.com/">here</a> to get your own `APP_ID`,`API_K
     ...
 </application>
 ```
-#### IOS
-1. In the XCode's "Project navigator", right click on your project's Libraries folder ➜ `Add Files to <...>`
-2. Go to `node_modules` ➜ `react-native-speech-recognizer` ➜ `ios` ➜ select `SpeechRecognition.xcodeproj`
-3. Add `SpeechRecognition.a` to `Build Phases -> Link Binary With Libraries`
-4. Add permission to your `Info.plist`
+### IOS
+Add permission to your `Info.plist`
 ```
 <dict>
   ...
