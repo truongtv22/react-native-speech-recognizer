@@ -1,3 +1,4 @@
+<a href="https://github.com/Mrzhangxiaoduo/react-native-speech-recognizer/blob/master/README-CN.md">中文文档(Usage in Chinese)</a>
 # react-native-speech-recognizer
 A speech-recongintion library for React Native.
 # install
