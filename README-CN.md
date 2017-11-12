@@ -1,6 +1,6 @@
 <a href="https://github.com/Mrzhangxiaoduo/react-native-speech-recognizer/blob/master/README.md">英文文档</a>
 # react-native-speech-recognizer
-一个基于ReactNative的语音识别库.
+一个基于ReactNative的语音识别库（支持中文和英文）.
 # 安装
 ```
 npm install react-native-speech-recognizer --save
@@ -138,9 +138,10 @@ componentWillUnmount() {
 ...
 
 render() {
+//SpeechRecognizer.start('zh');1:'zh'（中文）,2:'eng'（英文）,默认:'zh'
 ...
     <TouchableOpacity 
-        onPressIn={()=> SpeechRecognizer.start()} 
+        onPressIn={()=> SpeechRecognizer.start('zh')} 
         onPressOut={()=> SpeechRecognizer.finish()}>
         ...
     </TouchableOpacity>
