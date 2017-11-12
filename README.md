@@ -139,7 +139,7 @@ componentWillUnmount() {
 ...
 
 render() {
-//SpeechRecognizer.start('zh');1:'zh',2:'eng',default:'zh'
+//SpeechRecognizer.start('zh'); 'zh' or 'eng',default:'zh'
 ...
     <TouchableOpacity 
         onPressIn={()=> SpeechRecognizer.start('zh')} 

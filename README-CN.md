@@ -138,7 +138,7 @@ componentWillUnmount() {
 ...
 
 render() {
-//SpeechRecognizer.start('zh');1:'zh'（中文）,2:'eng'（英文）,默认:'zh'
+//SpeechRecognizer.start('zh');'zh'（中文）或者'eng'（英文）,默认:'zh'
 ...
     <TouchableOpacity 
         onPressIn={()=> SpeechRecognizer.start('zh')} 
