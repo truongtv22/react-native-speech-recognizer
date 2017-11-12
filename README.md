@@ -1,6 +1,6 @@
 <a href="https://github.com/Mrzhangxiaoduo/react-native-speech-recognizer/blob/master/README-CN.md">中文文档(Usage in Chinese)</a>
 # react-native-speech-recognizer
-A speech-recongintion library for React Native.
+A speech-recongintion library for React Native(Support Chinese and English).
 # install
 ```
 npm install react-native-speech-recognizer --save
@@ -139,9 +139,10 @@ componentWillUnmount() {
 ...
 
 render() {
+//SpeechRecognizer.start('zh');1:'zh',2:'eng',default:'zh'
 ...
     <TouchableOpacity 
-        onPressIn={()=> SpeechRecognizer.start()} 
+        onPressIn={()=> SpeechRecognizer.start('zh')} 
         onPressOut={()=> SpeechRecognizer.finish()}>
         ...
     </TouchableOpacity>
