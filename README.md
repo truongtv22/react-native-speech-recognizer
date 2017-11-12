@@ -1,6 +1,6 @@
 <a href="https://github.com/Mrzhangxiaoduo/react-native-speech-recognizer/blob/master/README-CN.md">中文文档(Usage in Chinese)</a>
 # react-native-speech-recognizer
-A speech-recongintion library for React Native(Support Chinese and English).
+A speech-recongintion library for React Native(Support Chinese and English),Chinese is dependent on <a href="http://yuyin.baidu.com/docs/asr/186">baidu API</a>.
 # install
 ```
 npm install react-native-speech-recognizer --save

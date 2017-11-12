@@ -1,6 +1,6 @@
 <a href="https://github.com/Mrzhangxiaoduo/react-native-speech-recognizer/blob/master/README.md">英文文档</a>
 # react-native-speech-recognizer
-一个基于ReactNative的语音识别库（支持中文和英文）.
+一个基于ReactNative的语音识别库（支持中文和英文）中文基于<a href="http://yuyin.baidu.com/docs/asr/186">百度API</a>.
 # 安装
 ```
 npm install react-native-speech-recognizer --save
