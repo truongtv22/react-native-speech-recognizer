@@ -2,7 +2,7 @@
  * Created by zhangxiaoduo on 2017/11/6.
  */
 
-import {NativeModules, DeviceEventEmitter,Platform,NativeAppEventEmitter} from 'react-native';
+import {NativeModules, DeviceEventEmitter, Platform, NativeAppEventEmitter} from 'react-native';
 
 const SpeechRecognition = NativeModules.SpeechRecognition;
 
@@ -14,15 +14,19 @@ export default {
         this.listener = emitter.addListener("RECOGNIZE_SUCC", resp => {
             if (Platform.OS == 'android' && resp && JSON.parse(resp) && JSON.parse(resp).best_result) {
                 callback && callback(JSON.parse(resp).best_result);
-            }else if(Platform.OS == 'ios' && resp && resp.bestTranscription && resp.bestTranscription.formattedString){
-                callback && callback(resp.bestTranscription.formattedString.replace(/-/g,''));
+            } else if (Platform.OS == 'ios' && resp && resp.bestTranscription && resp.bestTranscription.formattedString) {
+                callback && callback(resp.bestTranscription.formattedString.replace(/-/g, ''));
             }
             else return '';
         });
     },
 
-    start(){
-        Platform.OS == 'ios' ? SpeechRecognition.startRecognition('zh'):SpeechRecognition.startRecognition();
+    start(lang){
+        if (lang && (lang === 'eng' || lang === 'zh')) {
+            SpeechRecognition.startRecognition(lang);
+        } else {
+            SpeechRecognition.startRecognition('zh');
+        }
     },
 
     finish(){

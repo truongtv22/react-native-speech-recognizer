@@ -35,7 +35,11 @@ public class SpeechRecognitionManager extends ReactContextBaseJavaModule impleme
     }
 
     @ReactMethod
-    public void startRecognition(){
+    public void startRecognition(String language) {
+        int lang = 1536;//default Chinese
+        if (language != null && "eng".equals(language)) {
+            lang = 1736;//English
+        }
 
         try {
             asr = EventManagerFactory.create(this.getCurrentActivity(), "asr");
@@ -45,9 +49,10 @@ public class SpeechRecognitionManager extends ReactContextBaseJavaModule impleme
             String event = null;
             event = SpeechConstant.ASR_START;
 
+            params.put(SpeechConstant.PID, lang);//1536(Chinese),1736(English),default:1536
             params.put(SpeechConstant.ACCEPT_AUDIO_VOLUME, false);
             params.put(SpeechConstant.VAD, SpeechConstant.VAD_DNN);
-            params.put(SpeechConstant.PROP ,10008);//数字偏好
+            params.put(SpeechConstant.PROP, 10008);//数字偏好
 
             String json = null;
             json = new JSONObject(params).toString();
